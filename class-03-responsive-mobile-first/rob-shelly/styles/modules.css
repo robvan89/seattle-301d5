@@ -16,10 +16,6 @@
   margin-right: 3%;
 }
 
-.main-nav {
-  padding: 0.1em;
-}
-
 .main-nav ul {
   display: none;
   padding: 0;
@@ -34,7 +30,9 @@
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
-  padding: .5em .2em;
+  padding-top: .2em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid #444;
 }
 
 #filters {
@@ -69,11 +67,11 @@
     display: block;
   }
   .main-nav {
-    padding-left: 3%;
+    margin-left: 3%;
   }
   .main-nav ul li {
     display: inline;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 6%;
+    padding-right: 7%;
   }
 }

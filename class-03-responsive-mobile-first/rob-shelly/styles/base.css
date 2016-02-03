@@ -10,6 +10,11 @@ body {
   color: #313131;
 }
 
+main {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
 hr {
   margin: 1em;
   width: 80%;
