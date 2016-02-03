@@ -29,17 +29,13 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
-      var p = 0;
+      var self = $(this).val();
       $('article').each(function() {
-        $(this).css('display: none');
-        console.log(p);
-        p++;
+        $(this).hide();
       })
       $('article').each(function() {
-        var k = $(this).author;
-        console.log(k);
-        if (k === $('#author-filter').value) {
-          $(this).css('display: visible');
+        if (self === $(this).find('address').attr('data-author')) {
+          $(this).show();
         }
       });
 
@@ -88,14 +84,25 @@ articleView.handleMainNav = function() {
   //       single .tab-content section that is associated with the clicked .tab element.
   //       So: You need to dynamically build a selector string with the correct ID, based on the
   //       data available to you on the .tab element that was clicked.
-  $('.main-nav').on(/* CODE GOES HERE */);
+  $('.main-nav').on('click', '.tab', function() {
+    $('.tab-content').hide();
+    $('#' + $(this).data('content')).fadeIn();
+  });
 
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any artcile body.
+    $('#articles').on('click', '.read-on', function() {
+      event.preventDefault();
+      $('.article-body *:nth-of-type(n+2)').fadeIn();
+    // if($('.read-on').is(':visible') {
+    //   $('.read-on').hide();
+    // }
 
+
+    });
   // TODO: Add an event handler to reveal all the hidden elements,
   //       when the .read-on link is clicked. You can go ahead and hide the
   //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
@@ -108,4 +115,6 @@ articleView.setTeasers = function() {
 articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
+articleView.handleMainNav();
+articleView.setTeasers();
 $();

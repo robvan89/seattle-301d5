@@ -7,6 +7,18 @@ body {
   color: #313131;
 }
 
+.site-header {
+  background-color: #55AA55;
+}
+
+.sitetitle {
+  padding-left: 20px;
+}
+
+.siteslogan {
+  padding-left: 20px;
+}
+
 hr {
   margin: 1em;
   width: 80%;
@@ -25,11 +37,17 @@ address {
 /*LINK STYLES
 =======================================*/
 
+li {
+  list-style: none;
+}
+
 a, a:link, a:active {
   color: #777;
+  text-decoration: none;
 }
 
 a:hover, a:focus {
+  color: blue;
 }
 
 a:visited {
