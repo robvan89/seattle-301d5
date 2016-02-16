@@ -11,11 +11,14 @@
 
   // TODO: How do you want to render a single repo as html? Return your filled in HTML template.
   var render = function(repo) {
-    //Create new HTML li elements $('<li>').html(put stuff here); Return list item containing info about repo
+    console.log(repo.name);
+    var ht = $('<li>').html('<h2>' + repo.name + '_' + repo.stargazers_url + '</h2>');
+    return ht;
   };
 
   // DONE: If all the data is loaded, we can prep the UI and render the repos.
   repoView.index = function() {
+    console.log('We are trying to see if repoView index is called.');
     ui();
 
     // The jQuery `append` method lets us append an entire array of HTML elements at once,
