@@ -1,30 +1,21 @@
 (function(module) {
   var repoView = {};
 
-  // DONE: Private methods declared here live only within the scope of the wrapping IIFE.
   var ui = function() {
-    var $about = $('#about'); // Best practice: Cache the DOM query if it's used more than once.
-
+    var $about = $('#about');
     $about.find('ul').empty();
     $about.show().siblings().hide();
   };
 
-  // TODO: How do you want to render a single repo as html? Return your filled in HTML template.
   var render = function(repo) {
-    console.log(repo.name);
-    var ht = $('<li>').html('<h2>' + repo.name + '_' + repo.stargazers_url + '</h2>');
-    return ht;
+    var html = $('<li>').html('<p>' + repo.name + '_' + repo.stargazers_url + '</p>');
+    return html;
   };
 
-  // DONE: If all the data is loaded, we can prep the UI and render the repos.
   repoView.index = function() {
-    console.log('We are trying to see if repoView index is called.');
     ui();
-
-    // The jQuery `append` method lets us append an entire array of HTML elements at once,
-    // So we can use a little FP to transform our data-set into DOM nodes:
     $('#about ul').append(
-      repos.with('forks_count').map(render)
+      repos.with('name').map(render)
     );
   };
 
