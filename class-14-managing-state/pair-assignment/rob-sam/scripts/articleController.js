@@ -7,7 +7,10 @@
     articleView.index(ctx.articles);
   };
 
-  // COMMENT: What does this method do?  What is it's execution path?
+  // : What does this method do?  What is it's execution path?
+  /* This method loads the article after the read on button is clicked.  The execution path is page('/article/:id'). When clicking on the 'read on' button, the id, based on the handlebars template is put into the url which then initates the path specifie in routs.js.
+  *
+  */
   articlesController.loadById = function(ctx, next) {
     var articleData = function(article) {
       ctx.articles = article;
@@ -17,7 +20,11 @@
     Article.findWhere('id', ctx.params.id, articleData);
   };
 
-  // COMMENT: What does this method do?  What is it's execution path?
+  // : What does this method do?  What is it's execution path?
+  /* This method loads the articles specified by author name.  When an author name is selected the articleView.handleFilters method is ran which makes filter an empty string which meets the condition of the page funciton that contains the two callback functions of articleController.loadByAuthor and articleController.index.  This will load the articles based which author name was selected and replace the '+' inside the ctx.params.author with an empty string.
+  * The authorData variable is initialized and passed into the Article.findWhere function as its callback.
+  */
+
   articlesController.loadByAuthor = function(ctx, next) {
     var authorData = function(articlesByAuthor) {
       ctx.articles = articlesByAuthor;
@@ -27,8 +34,9 @@
     Article.findWhere('author', ctx.params.authorName.replace('+', ' '), authorData);
   };
 
-  /** COMMENT: This method loads the articles based on their category, as specified in the JSON file.
-  *
+  /** : This method loads the articles based on their category, as specified in the JSON file.
+  /* This method loads the articles specified by category name.  When a category name is selected the articleView.handleFilters method is ran which makes filter an empty string which meets the condition of the page funciton that contains the two callback functions - this method and articleController.index.  This will load the articles based which category name was selected and replace the '+' inside the ctx.params.categoryName with an empty string.
+  * The categoryData variable is initialized and passed into the Article.findWhere function as its callback.
   */
   articlesController.loadByCategory = function(ctx, next) {
     var categoryData = function(articlesInCategory) {

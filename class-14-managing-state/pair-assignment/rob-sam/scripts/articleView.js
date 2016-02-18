@@ -147,7 +147,10 @@
     });
 
     articleView.populateFilters();
-    // COMMENT: What does this method do?  What is it's execution path?
+    // What does this method do?  What is it's execution path?
+    /** This method changes the id of the filters when they are selected or change.
+      * Now that the filters are populated we need to trigger events when the value is changed or selected.  Depending on which filter was selected and the value of the option selected the page function is called with the appropriate values.
+      */
     articleView.handleFilters();
 
     // DONE: Replace setTeasers with just the truncation logic, if needed:
