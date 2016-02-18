@@ -51,7 +51,6 @@
   */
   articlesController.loadAll = function(ctx, next) {
     var articleData = function(allArticles) {
-      console.log(Article.all);
       ctx.articles = Article.all;
       next();
     };
